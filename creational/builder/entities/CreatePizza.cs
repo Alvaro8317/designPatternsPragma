@@ -1,13 +1,28 @@
 namespace CorePizzaBuilder.entities
 {
-  class CreatePizza
+  public class Pizza
   {
-    public interface IBuilder
+    public string Size { get; set; }
+    public string CrustType { get; set; }
+    public List<string> Toppings { get; set; }
+
+    public Pizza()
     {
-      void CreateMass();
-      void MakeToppings();
-      void ThrowCheese();
-      void MakePizza();
+      Size = "Familiar";
+      CrustType = "Square";
+      Toppings = new List<string>();
+    }
+
+    public void DisplayPizza()
+    {
+      Console.WriteLine("Size: {0}", Size);
+      Console.WriteLine("Crust Type: {0}", CrustType);
+      Console.WriteLine("Toppings:");
+
+      foreach (string topping in Toppings)
+      {
+        Console.WriteLine("- {0}", topping);
+      }
     }
   }
 }
